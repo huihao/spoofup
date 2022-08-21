@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "config:base",
+    "group:allNonMajor",
+    ":semanticCommits",
+    ":automergeTypes",
+    ":disableDependencyDashboard",
+    ":pinVersions",
+    ":semanticCommitType(deps)",
+    ":onlyNpm",
+    ":label(dependencies)",
+    "schedule:weekly"
+  ],
+  "baseBranches": [
+    "main"
+  ],
+  "bumpVersion": "patch",
+  "gitNoVerify": [
+    "commit",
+    "push"
+  ],
+  "packageRules": [
+    {
+      "packageNames": [
+        "node",
+        "npm"
+      ],
+      "enabled": false
+    },
+    {
+      "depTypeList": [
+        "devDependencies"
+      ],
+      "semanticCommitType": "build"
+    },
+    {
+      "matchPackageNames": [
+        "electron"
+      ],
+      "separateMajorMinor": false
+    }
+  ]
+}
